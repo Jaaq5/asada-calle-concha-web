@@ -1,0 +1,48 @@
+# 🔹 Dependencias
+node_modules/
+
+# 🔹 Next.js build
+.next/
+out/
+
+# 🔹 Producción
+build
+
+# 🔹 Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 🔹 Archivos de entorno (MUY IMPORTANTE)
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# 🔹 Vercel
+.vercel
+
+# 🔹 Sistema operativo
+.DS_Store
+Thumbs.db
+
+# 🔹 Editor / IDE
+.vscode/
+.idea/
+
+# 🔹 TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# 🔹 Archivos temporales
+*.swp
+*.swo
+
+# 🔹 Coverage / testing
+coverage/
+
+# 🔹 Otros
+*.pem

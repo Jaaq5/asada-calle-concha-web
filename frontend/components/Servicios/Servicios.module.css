@@ -1,0 +1,226 @@
+.section {
+  padding: 3rem 1rem;
+  background-color: var(--asada-gray-light);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--asada-blue-deep);
+  margin: 0 0 0.5rem 0;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: var(--asada-gray-medium);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: var(--asada-white);
+  border: 1px solid rgba(11, 79, 138, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(11, 79, 138, 0.1);
+  border-color: var(--asada-blue-light);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.1);
+}
+
+.iconBlue {
+  background-color: rgba(28, 167, 236, 0.15);
+  color: var(--asada-blue-light);
+}
+
+.iconGreen {
+  background-color: rgba(59, 178, 115, 0.15);
+  color: var(--asada-green);
+}
+
+.iconDeepBlue {
+  background-color: rgba(11, 79, 138, 0.15);
+  color: var(--asada-blue-deep);
+}
+
+.cardTitleWrapper {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--asada-gray-dark);
+  margin: 0 0 0.25rem 0;
+}
+
+.cardBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.badgePrincipal {
+  background-color: rgba(11, 79, 138, 0.15);
+  color: var(--asada-blue-deep);
+}
+
+.badgePopular {
+  background-color: rgba(59, 178, 115, 0.15);
+  color: var(--asada-green);
+}
+
+.cardDescription {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--asada-gray-medium);
+  margin: 0 0 1rem 0;
+  flex: 1;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(11, 79, 138, 0.08);
+  margin-bottom: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--asada-gray-dark);
+}
+
+.detailItem svg {
+  color: var(--asada-gray-medium);
+  flex-shrink: 0;
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.actionPrimary {
+  background-color: var(--asada-blue-deep);
+  color: var(--asada-white);
+}
+
+.actionPrimary:hover {
+  background-color: #094175;
+}
+
+.actionSecondary {
+  background-color: transparent;
+  color: var(--asada-blue-deep);
+  border: 1px solid var(--asada-blue-deep);
+}
+
+.actionSecondary:hover {
+  background-color: var(--asada-blue-deep);
+  color: var(--asada-white);
+}
+
+.actionReport {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #D97706;
+}
+
+.actionReport:hover {
+  background-color: rgba(245, 158, 11, 0.25);
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .section {
+    padding: 5rem 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

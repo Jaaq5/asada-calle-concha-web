@@ -1,0 +1,172 @@
+.section {
+  padding: 3rem 1rem;
+  background-color: var(--asada-white);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--asada-blue-deep);
+  margin: 0 0 0.5rem 0;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: var(--asada-gray-medium);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: var(--asada-white);
+  border: 1px solid rgba(11, 79, 138, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(11, 79, 138, 0.1);
+  border-color: var(--asada-blue-light);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.cardBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.badgeWarning {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #D97706;
+}
+
+.badgeInfo {
+  background-color: rgba(28, 167, 236, 0.15);
+  color: var(--asada-blue-light);
+}
+
+.badgeNews {
+  background-color: rgba(59, 178, 115, 0.15);
+  color: var(--asada-green);
+}
+
+.cardDate {
+  font-size: 0.75rem;
+  color: var(--asada-gray-medium);
+  white-space: nowrap;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--asada-gray-dark);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  color: var(--asada-gray-medium);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--asada-blue-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cardLink:hover {
+  color: var(--asada-blue-deep);
+}
+
+.viewAll {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.viewAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--asada-blue-deep);
+  background-color: transparent;
+  border: 2px solid var(--asada-blue-deep);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.viewAllButton:hover {
+  background-color: var(--asada-blue-deep);
+  color: var(--asada-white);
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .section {
+    padding: 5rem 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+}
