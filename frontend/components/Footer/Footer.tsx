@@ -75,19 +75,19 @@ export function Footer() {
             <h4 className={styles.columnTitle}>Contacto</h4>
             <div className={styles.contactItem}>
               <MapPin size={16} className={styles.contactIcon} />
-              <span>Calle Concha, Guanacaste, Costa Rica</span>
+              <span>Calle Concha, Sarchi, Costa Rica</span>
             </div>
             <div className={styles.contactItem}>
               <Phone size={16} className={styles.contactIcon} />
-              <span>+506 2222-2222</span>
+              <span>2454-0300</span>
             </div>
             <div className={styles.contactItem}>
               <Mail size={16} className={styles.contactIcon} />
-              <span>info@asadacalleconcha.cr</span>
+              <span>asadacalleconcha01@yahoo.com</span>
             </div>
             <div className={styles.contactItem}>
               <Clock size={16} className={styles.contactIcon} />
-              <span>Lunes a Viernes: 8:00 a.m. - 4:00 p.m.</span>
+              <span>Lunes a Sábado: 8:00 a.m. - 12:00 p.m.</span>
             </div>
           </div>
         </div>

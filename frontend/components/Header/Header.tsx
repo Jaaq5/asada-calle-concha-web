@@ -58,7 +58,12 @@ export function Header() {
         </nav>
 
         <div className={styles.headerActions}>
-          <Link href="/factura" className={styles.ctaButton}>
+          <Link
+            href="https://acueductoscr.com/Recibos?provincia=2&idacueducto=254"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaButton}
+          >
             <FileText size={18} />
             Consultar Factura
           </Link>
