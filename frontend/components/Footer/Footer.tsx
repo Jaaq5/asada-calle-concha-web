@@ -1,22 +1,22 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
-import styles from './Footer.module.css'
+import Link from "next/link";
+import Image from "next/image";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import styles from "./Footer.module.css";
 
 const quickLinks = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Servicios', href: '/servicios' },
-  { label: 'Trámites', href: '/tramites' },
-  { label: 'Transparencia', href: '/transparencia' },
-]
+  { label: "Inicio", href: "/" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Trámites", href: "/tramites" },
+  { label: "Transparencia", href: "/transparencia" },
+];
 
 const serviceLinks = [
-  { label: 'Consultar Factura', href: '/factura' },
-  { label: 'Solicitar Servicio', href: '/solicitar' },
-  { label: 'Reportar Avería', href: '/reportar' },
-  { label: 'Formularios', href: '/formularios' },
-]
+  { label: "Consultar Factura", href: "/factura" },
+  { label: "Solicitar Servicio", href: "/solicitar" },
+  { label: "Reportar Avería", href: "/reportar" },
+  { label: "Formularios", href: "/formularios" },
+];
 
 export function Footer() {
   return (
@@ -26,7 +26,7 @@ export function Footer() {
           <div className={styles.brand}>
             <div className={styles.logoWrapper}>
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-removebg-6s6Q6mM2O1hd0KLWTJK8y0ibL23TTy.png"
+                src="/images/logo-no-bg.png"
                 alt="Logo ASADA Calle Concha"
                 width={50}
                 height={50}
@@ -34,19 +34,25 @@ export function Footer() {
               />
               <div className={styles.logoText}>
                 <span className={styles.logoTitle}>ASADA Calle Concha</span>
-                <span className={styles.logoSlogan}>Agua potable para nuestra comunidad</span>
+                <span className={styles.logoSlogan}>
+                  Agua potable para nuestra comunidad
+                </span>
               </div>
             </div>
             <p className={styles.brandDescription}>
-              Comprometidos con brindar agua potable de calidad y un servicio eficiente 
-              a toda la comunidad de Calle Concha.
+              Comprometidos con brindar agua potable de calidad y un servicio
+              eficiente a toda la comunidad de Calle Concha.
             </p>
           </div>
 
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Enlaces</h4>
             {quickLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={styles.columnLink}>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.columnLink}
+              >
                 {link.label}
               </Link>
             ))}
@@ -55,7 +61,11 @@ export function Footer() {
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Servicios</h4>
             {serviceLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={styles.columnLink}>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.columnLink}
+              >
                 {link.label}
               </Link>
             ))}
@@ -86,7 +96,8 @@ export function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {new Date().getFullYear()} ASADA Calle Concha. Todos los derechos reservados.
+            © {new Date().getFullYear()} ASADA Calle Concha. Todos los derechos
+            reservados.
           </p>
           <div className={styles.legal}>
             <Link href="/privacidad" className={styles.legalLink}>
@@ -99,5 +110,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
