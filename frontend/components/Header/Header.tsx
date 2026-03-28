@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/sheet";
 import styles from "./Header.module.css";
 
+import logoNoBg from "@/public/images/logo-no-bg.png";
+
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Nosotros", href: "/nosotros" },
@@ -31,11 +33,10 @@ export function Header() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <Image
-            src="/images/logo-no-bg.png"
+            src={logoNoBg}
             alt="Logo ASADA Calle Concha"
-            width={50}
-            height={50}
             className={styles.logoImage}
+            priority
           />
           <div className={styles.logoText}>
             <span className={styles.logoTitle}>ASADA Calle Concha</span>

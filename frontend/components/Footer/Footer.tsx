@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import styles from "./Footer.module.css";
+import logoNoBg from "@/public/images/logo-no-bg.png";
 
 const quickLinks = [
   { label: "Inicio", href: "/" },
@@ -26,10 +27,8 @@ export function Footer() {
           <div className={styles.brand}>
             <div className={styles.logoWrapper}>
               <Image
-                src="/images/logo-no-bg.png"
+                src={logoNoBg}
                 alt="Logo ASADA Calle Concha"
-                width={50}
-                height={50}
                 className={styles.logoImage}
               />
               <div className={styles.logoText}>
