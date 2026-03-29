@@ -3,6 +3,7 @@ import Image from "next/image";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import styles from "./Footer.module.css";
 import logoNoBg from "@/public/images/logo-no-bg.png";
+import { getContacto } from "@/services/contacto.service";
 
 const quickLinks = [
   { label: "Inicio", href: "/" },
@@ -19,7 +20,9 @@ const serviceLinks = [
   { label: "Formularios", href: "/formularios" },
 ];
 
-export function Footer() {
+export async function Footer() {
+  const data = await getContacto();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -74,19 +77,21 @@ export function Footer() {
             <h4 className={styles.columnTitle}>Contacto</h4>
             <div className={styles.contactItem}>
               <MapPin size={16} className={styles.contactIcon} />
-              <span>Calle Concha, Sarchi, Costa Rica</span>
+              <span>
+                {data.direccion.calle}, {data.direccion.ciudad}
+              </span>
             </div>
             <div className={styles.contactItem}>
               <Phone size={16} className={styles.contactIcon} />
-              <span>2454-0300</span>
+              <span>{data.telefonos.map((t) => t.numero).join(" / ")}</span>
             </div>
             <div className={styles.contactItem}>
               <Mail size={16} className={styles.contactIcon} />
-              <span>asadacalleconcha01@yahoo.com</span>
+              <span>{data.correo}</span>
             </div>
             <div className={styles.contactItem}>
               <Clock size={16} className={styles.contactIcon} />
-              <span>Lunes a Sábado: 8:00 a.m. - 12:00 p.m.</span>
+              <span>{data.horario[0]}</span>
             </div>
           </div>
         </div>

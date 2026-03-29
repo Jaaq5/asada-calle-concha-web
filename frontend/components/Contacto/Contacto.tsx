@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
 import styles from "./Contacto.module.css";
+import { ContactoData } from "@/types/contacto";
 
 function WhatsAppIcon() {
   return (
@@ -10,7 +11,7 @@ function WhatsAppIcon() {
   );
 }
 
-export function Contacto() {
+export function Contacto({ data }: { data: ContactoData }) {
   return (
     <section id="contacto" className={styles.section}>
       <div className={styles.container}>
@@ -31,9 +32,9 @@ export function Contacto() {
               <div className={styles.infoContent}>
                 <h4>Dirección</h4>
                 <p>
-                  Calle Concha, 200 metros norte de la escuela local,
+                  {data.direccion.calle},
                   <br />
-                  Sarchi, Costa Rica
+                  {data.direccion.ciudad}
                 </p>
               </div>
             </div>
@@ -45,9 +46,14 @@ export function Contacto() {
               <div className={styles.infoContent}>
                 <h4>Teléfonos</h4>
                 <p>
-                  <a href="tel:+50624540300">2454-0300</a> (Oficina)
-                  <br />
-                  <a href="tel:+50660622347">6062-2347</a> (Oficina)
+                  {data.telefonos.map((tel, idx) => (
+                    <span key={idx} style={{ display: "block" }}>
+                      <a href={`tel:+506${tel.numero.replace(/\D/g, "")}`}>
+                        {tel.numero}
+                      </a>{" "}
+                      ({tel.descripcion})
+                    </span>
+                  ))}
                 </p>
               </div>
             </div>
@@ -59,18 +65,7 @@ export function Contacto() {
               <div className={styles.infoContent}>
                 <h4>Correo Electrónico</h4>
                 <p>
-                  <a href="mailto:asadacalleconcha01@yahoo.com">
-                    asadacalleconcha01@yahoo.com
-                  </a>
-                  <br />
-
-                  {/*
-
-                  <a href="mailto:tramites@asadacalleconcha.cr">
-                    tramites@asadacalleconcha.cr
-                  </a>
-
-                  */}
+                  <a href={`mailto:${data.correo}`}>{data.correo}</a>
                 </p>
               </div>
             </div>
@@ -82,10 +77,9 @@ export function Contacto() {
               <div className={styles.infoContent}>
                 <h4>Horario de Atención</h4>
                 <div className={styles.scheduleList}>
-                  <span>Lunes a Sábado: 8:00 a.m. - 12:00 p.m.</span>
-                  {/*
-                  <span>Sábados: 8:00 a.m. - 12:00 m.d. (solo trámites)</span>
-                  */}
+                  {data.horario.map((hora, idx) => (
+                    <span key={idx}>{hora}</span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -93,14 +87,8 @@ export function Contacto() {
 
           <div className={styles.mapSection}>
             <div className={styles.mapWrapper}>
-              {/*
-              <div className={styles.mapPlaceholder}>
-                <MapPin size={48} />
-                <span>Mapa de ubicación</span>
-              </div>
-              */}
               <iframe
-                src="https://www.google.com/maps?q=10.0958412,-84.3290026&z=17&output=embed"
+                src={data.direccion.mapaIframeUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -109,7 +97,7 @@ export function Contacto() {
               />
             </div>
             <Link
-              href="https://www.google.com/maps/place/ASADA+Calle+Concha/@10.0958465,-84.3315775,17z/data=!3m1!4b1!4m6!3m5!1s0x8fa059404f607289:0x976982edc8fff9af!8m2!3d10.0958412!4d-84.3290026!16s%2Fg%2F11pypdzlz1?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D"
+              href={data.direccion.mapaRedirectUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.directionsButton}
@@ -123,7 +111,9 @@ export function Contacto() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/50688888888?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20ASADA%20Calle%20Concha"
+        href={`https://wa.me/${data.whatsapp.numero}?text=${encodeURIComponent(
+          data.whatsapp.mensajeDefecto
+        )}`}
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsappButton}
