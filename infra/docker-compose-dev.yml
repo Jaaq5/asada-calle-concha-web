@@ -1,45 +1,9 @@
 # version: "3"
 # sudo docker compose -f docker-compose-dev.yml up --build
 services:
-  strapi:
-    container_name: strapi
-    build:
-      context: ../apps/backend
-      dockerfile: Dockerfile.dev
-    image: strapi:latest
-    restart: unless-stopped
-    env_file: .env.development
-    environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      JWT_SECRET: ${JWT_SECRET}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      APP_KEYS: ${APP_KEYS}
-      NODE_ENV: ${NODE_ENV}
-    volumes:
-      - ../apps/backend/config:/opt/app/config
-      - ../apps/backend/src:/opt/app/src
-      - ../apps/backend/package.json:/opt/package.json
-      - ../apps/backend/yarn.lock:/opt/yarn.lock
-      - ../apps/backend/.env:/opt/app/.env
-      - ../apps/backend/public/uploads:/opt/app/public/uploads
-
-      #- .:/opt/app
-      #- /opt/app/node_modules
-    ports:
-      - "1337:1337"
-    networks:
-      - strapi
-    depends_on:
-      - strapiDB
-
   strapiDB:
     container_name: strapiDB
-    platform: linux/amd64 #for platform error on Apple M1 chips
+    #platform: linux/amd64 #for platform error on Apple M1 chips
     restart: unless-stopped
     env_file: .env.development
     image: postgres:16.0-alpine
@@ -55,6 +19,11 @@ services:
       - "5432:5432"
     networks:
       - strapi
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME}"]
+      interval: 5s
+      retries: 5
 
 volumes:
   strapi-data:

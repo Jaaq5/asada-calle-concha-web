@@ -1,0 +1,61 @@
+#DO NOT DELETE OR RENAME THIS EXAMPLE FILE
+# Make a copy of this file, change its name to .env.development or .env.production
+# Doc: https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/
+
+
+DATABASE_CLIENT=postgres
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=5432
+DATABASE_NAME=strapi_db
+DATABASE_USERNAME=strapi_user
+DATABASE_PASSWORD=strapi_password
+DATABASE_SSL=false
+
+#DATABASE_CLIENT=postgres
+#DATABASE_HOST=strapiDB
+#DATABASE_HOST=127.0.0.1
+#DATABASE_PORT=5432
+#DATABASE_NAME=strapi_db
+#DATABASE_USERNAME=strapi_user
+#DATABASE_PASSWORD=strapi_password
+
+JWT_SECRET=12345
+ADMIN_JWT_SECRET=12345
+APP_KEYS=key1,key2
+API_TOKEN_SALT=12345
+TRANSFER_TOKEN_SALT=12345
+ENCRYPTION_KEY=12345
+
+# Development environment settings ############################################
+# Execution environment (development, production)
+#NODE_ENV=development                 
+
+# Postgres config #############################################################
+#POSTGRES_USER=strapi_user
+#POSTGRES_PASSWORD=strapi_password
+#POSTGRES_DB=strapi_db
+
+# Other configurations ########################################################
+
+
+
+# Server
+#HOST=0.0.0.0
+#PORT=1337
+
+# Secrets
+#APP_KEYS=/gv7lDH59o7VBq2nRsdP1w==,gxLscqLSAfyvISJVwChOfg==,8NYobRFV/nSv2o7BaKy33Q==,F08sLjHzGlpt7Z3k4GSQsw==
+#API_TOKEN_SALT=w3aBClx8bHd2bwdaWQbxPQ==
+#ADMIN_JWT_SECRET=aT4EmwUGsNI9zvAV9XVgnA==
+#TRANSFER_TOKEN_SALT=auUMB/eo7kkOfE/hOc3ifQ==
+#ENCRYPTION_KEY=zqW6/ABBNoz0B9ZffdsStQ==
+
+# Database
+#DATABASE_CLIENT=postgres
+#DATABASE_HOST=127.0.0.1
+#DATABASE_PORT=5432
+#DATABASE_NAME=strapi_db
+#DATABASE_USERNAME=strapi_user
+#DATABASE_PASSWORD=strapi_user
+#DATABASE_SSL=false
+#DATABASE_FILENAME=

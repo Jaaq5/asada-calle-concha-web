@@ -1,15 +1,58 @@
 import { NextResponse } from "next/server";
 import { contactoDefault } from "@/config/contacto";
 
+/*
 export async function GET() {
   // Mock endpoint returning the static configuration as JSON
   return NextResponse.json(contactoDefault);
 }
+*/
+
+export async function GET() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  const API_URL = process.env.API_URL;
+
+  try {
+    const res = await fetch(`${API_URL}/api/contacto?populate=*`, {
+      signal: controller.signal,
+      cache: "no-store",
+    });
+
+    clearTimeout(timeout);
+
+    if (!res.ok) throw new Error("API error");
+
+    const json = await res.json();
+    const data = json.data;
+
+    const contacto = {
+      direccion: {
+        calle: data.direccion?.[0]?.calle ?? "",
+        ciudad: data.direccion?.[0]?.ciudad ?? "",
+        mapaIframeUrl: data.direccion?.[0]?.mapaIframeUrl ?? "",
+        mapaRedirectUrl: data.direccion?.[0]?.mapaRedirectUrl ?? "",
+      },
+      telefonos: data.telefono?.map((t: any) => ({
+        numero: t.numero,
+        descripcion: t.descripcion,
+      })) ?? [],
+      correo: data.correo?.Email ?? "",
+      horario: data.horario?.map((h: any) => h.horario) ?? [],
+      whatsapp: {
+        numero: data.whatsapp?.[0]?.numero ?? "",
+        mensajeDefecto: data.whatsapp?.[0]?.mensajeDefecto ?? "",
+      },
+    };
+
+    return NextResponse.json(contacto);
+  } catch (error) {
+    console.warn("Fallback activado:", error);
+    return NextResponse.json(contactoDefault);
+  }
+}
 
 /*
-import { NextResponse } from "next/server";
-import { contactoDefault } from "@/config/contacto";
-
 export async function GET() {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000); // 5s

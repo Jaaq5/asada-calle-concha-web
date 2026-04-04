@@ -1,5 +1,5 @@
 {
-  "name": "my-strapi-project",
+  "name": "putita",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -15,10 +15,10 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.40.0",
-    "@strapi/plugin-users-permissions": "5.40.0",
-    "@strapi/strapi": "5.40.0",
-    "pg": "8.8.0",
+    "@strapi/plugin-cloud": "5.41.1",
+    "@strapi/plugin-users-permissions": "5.41.1",
+    "@strapi/strapi": "5.41.1",
+    "pg": "8.20.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -35,7 +35,7 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "ac46dcab-fd69-43de-8d79-065fc1d45112",
-    "installId": "0a38f5c0831aab7f755344bafcbd2e631944a07c035c0667c5b2626b0e6d02f7"
+    "uuid": "4e2b5850-220d-4f0a-816d-90c886c6ace5",
+    "installId": "600a408929ede623a1d0daafc2df4681f9f5326b0b89990aa93339f325817569"
   }
 }
