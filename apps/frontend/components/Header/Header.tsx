@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, FileText } from "lucide-react";
+import { Menu, FileText, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 import {
   Sheet,
   SheetContent,
@@ -27,6 +28,16 @@ const navItems = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  };
 
   return (
     <header className={styles.header}>
@@ -59,6 +70,18 @@ export function Header() {
         </nav>
 
         <div className={styles.headerActions}>
+          <button
+            onClick={toggleTheme}
+            className={styles.themeToggle}
+            aria-label={mounted && resolvedTheme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          >
+            {mounted && resolvedTheme === "dark" ? (
+              <Sun size={20} />
+            ) : (
+              <Moon size={20} />
+            )}
+          </button>
+
           <Link
             href="https://acueductoscr.com/Recibos?provincia=2&idacueducto=254"
             target="_blank"

@@ -1,6 +1,7 @@
 .section {
   padding: 3rem 1rem;
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
+  transition: background-color 0.2s ease;
 }
 
 .container {
@@ -18,12 +19,18 @@
   font-weight: 700;
   color: var(--asada-blue-deep);
   margin: 0 0 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .sectionTitle {
+  color: var(--asada-white);
 }
 
 .sectionSubtitle {
   font-size: 1rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   margin: 0;
+  transition: color 0.2s ease;
 }
 
 .grid {
@@ -37,7 +44,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  background-color: var(--asada-gray-light);
+  background-color: var(--asada-bg-secondary);
   border: 1px solid transparent;
   border-radius: 12px;
   text-decoration: none;
@@ -45,11 +52,21 @@
   cursor: pointer;
 }
 
+:global(.dark) .card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
 .card:hover {
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
   border-color: var(--asada-blue-light);
   box-shadow: 0 8px 20px rgba(11, 79, 138, 0.1);
   transform: translateX(4px);
+}
+
+:global(.dark) .card:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .iconWrapper {
@@ -90,20 +107,22 @@
 .cardTitle {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
   margin: 0 0 0.25rem 0;
+  transition: color 0.2s ease;
 }
 
 .cardDescription {
   font-size: 0.8125rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   margin: 0;
   line-height: 1.4;
+  transition: color 0.2s ease;
 }
 
 .cardArrow {
   flex-shrink: 0;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   transition: all 0.3s ease;
 }
 
@@ -130,9 +149,10 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
   border-radius: 50%;
   color: var(--asada-green);
+  transition: background-color 0.2s ease;
 }
 
 .trustContent h3 {
@@ -140,13 +160,19 @@
   font-weight: 600;
   color: var(--asada-blue-deep);
   margin: 0 0 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .trustContent h3 {
+  color: var(--asada-white);
 }
 
 .trustContent p {
   font-size: 0.875rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   margin: 0;
   line-height: 1.5;
+  transition: color 0.2s ease;
 }
 
 /* Tablet */
