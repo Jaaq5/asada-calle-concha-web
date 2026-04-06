@@ -1,6 +1,7 @@
 .section {
   padding: 3rem 1rem;
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
+  transition: background-color 0.2s ease;
 }
 
 .container {
@@ -18,12 +19,18 @@
   font-weight: 700;
   color: var(--asada-blue-deep);
   margin: 0 0 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .sectionTitle {
+  color: var(--asada-white);
 }
 
 .sectionSubtitle {
   font-size: 1rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   margin: 0;
+  transition: color 0.2s ease;
 }
 
 .grid {
@@ -36,15 +43,24 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background-color: var(--asada-white);
-  border: 1px solid rgba(11, 79, 138, 0.1);
+  background-color: var(--asada-bg-primary);
+  border: 1px solid var(--asada-border);
   border-radius: 12px;
   transition: all 0.3s ease;
+}
+
+:global(.dark) .card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
   box-shadow: 0 8px 20px rgba(11, 79, 138, 0.1);
   border-color: var(--asada-blue-light);
+}
+
+:global(.dark) .card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .cardHeader {
@@ -82,23 +98,26 @@
 
 .cardDate {
   font-size: 0.75rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .cardTitle {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
   margin: 0 0 0.5rem 0;
   line-height: 1.4;
+  transition: color 0.2s ease;
 }
 
 .cardDescription {
   font-size: 0.875rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   line-height: 1.6;
   margin: 0;
+  transition: color 0.2s ease;
 }
 
 .cardLink {
@@ -139,9 +158,19 @@
   text-decoration: none;
 }
 
+:global(.dark) .viewAllButton {
+  color: var(--asada-white);
+  border-color: var(--asada-white);
+}
+
 .viewAllButton:hover {
   background-color: var(--asada-blue-deep);
   color: var(--asada-white);
+}
+
+:global(.dark) .viewAllButton:hover {
+  background-color: var(--asada-white);
+  color: var(--asada-blue-deep);
 }
 
 /* Tablet */

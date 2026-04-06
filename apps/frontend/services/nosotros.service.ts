@@ -38,8 +38,8 @@ export async function getNosotros(): Promise<NosotrosData> {
     };
 
     return nosotros;
-  } catch (error) {
-    console.error("Error obteniendo datos de nosotros:", error);
+  } catch {
+    // API not available - using default values (expected in development without Strapi)
     return nosotrosDefault;
   }
 }

@@ -1,6 +1,7 @@
 .section {
   padding: 3rem 1rem;
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
+  transition: background-color 0.2s ease;
 }
 
 .container {
@@ -18,12 +19,18 @@
   font-weight: 700;
   color: var(--asada-blue-deep);
   margin: 0 0 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .sectionTitle {
+  color: var(--asada-white);
 }
 
 .sectionSubtitle {
   font-size: 1rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
   margin: 0;
+  transition: color 0.2s ease;
 }
 
 /* Historia */
@@ -46,13 +53,19 @@
   font-weight: 600;
   color: var(--asada-blue-deep);
   margin: 0 0 1rem 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .historiaText h3 {
+  color: var(--asada-white);
 }
 
 .historiaText p {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
   margin: 0 0 1rem 0;
+  transition: color 0.2s ease;
 }
 
 .historiaImage {
@@ -83,9 +96,10 @@
 
 .mvvCard {
   padding: 1.5rem;
-  background-color: var(--asada-gray-light);
+  background-color: var(--asada-bg-secondary);
   border-radius: 12px;
   border-left: 4px solid var(--asada-blue-deep);
+  transition: background-color 0.2s ease;
 }
 
 .mvvCard.mision {
@@ -130,13 +144,19 @@
   font-weight: 600;
   color: var(--asada-blue-deep);
   margin: 0 0 0.75rem 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .mvvCard h3 {
+  color: var(--asada-white);
 }
 
 .mvvCard p {
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
   margin: 0;
+  transition: color 0.2s ease;
 }
 
 .valoresList {
@@ -151,10 +171,11 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.375rem 0.75rem;
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
   border-radius: 20px;
   font-size: 0.8125rem;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .valorTag svg {
@@ -178,6 +199,11 @@
   font-weight: 600;
   color: var(--asada-blue-deep);
   margin: 0;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .juntaHeader h3 {
+  color: var(--asada-white);
 }
 
 .periodoTag {
@@ -204,13 +230,17 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--asada-gray-light);
+  background-color: var(--asada-bg-secondary);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
 
 .juntaCard:hover {
   background-color: rgba(28, 167, 236, 0.08);
+}
+
+:global(.dark) .juntaCard:hover {
+  background-color: rgba(28, 167, 236, 0.15);
 }
 
 .juntaAvatar {
@@ -232,20 +262,23 @@
 .juntaInfo h4 {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
   margin: 0 0 0.25rem 0;
+  transition: color 0.2s ease;
 }
 
 .juntaInfo span {
   font-size: 0.8125rem;
-  color: var(--asada-gray-medium);
+  color: var(--asada-text-secondary);
+  transition: color 0.2s ease;
 }
 
 /* Marco Legal */
 .marcoLegal {
   padding: 1.5rem;
-  background-color: var(--asada-gray-light);
+  background-color: var(--asada-bg-secondary);
   border-radius: 12px;
+  transition: background-color 0.2s ease;
 }
 
 .marcoLegal h3 {
@@ -256,6 +289,11 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .marcoLegal h3 {
+  color: var(--asada-white);
 }
 
 .marcoLegal h3 svg {
@@ -273,11 +311,12 @@
   align-items: flex-start;
   gap: 0.75rem;
   padding: 0.75rem;
-  background-color: var(--asada-white);
+  background-color: var(--asada-bg-primary);
   border-radius: 8px;
   font-size: 0.9375rem;
-  color: var(--asada-gray-dark);
+  color: var(--asada-text-primary);
   line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .marcoItem svg {
