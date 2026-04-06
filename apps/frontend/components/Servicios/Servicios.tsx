@@ -56,15 +56,16 @@ const servicios = [
     ],
   },
   {
-    id: 'cambio-medidor',
+    id: 'traslado-hidrometro',
     icon: Gauge,
-    title: 'Cambio de Medidor',
-    description: 'Reemplazo de medidor por daño, deterioro o actualización tecnológica para una medición más precisa.',
+    title: 'Traslado de Hidrometro',
+    description: 'Reubicación del hidrometro por solicitud del abonado.',
     color: 'blue' as const,
     requisitos: 'Solicitud formal',
     costo: '₡45,000',
     actions: [
-      { label: 'Solicitar', href: '/tramites/cambio-medidor', type: 'primary' as const },
+      { label: 'Solicitar', href: '/tramites/traslado-hidrometro', type: 'primary' as const },
+      { label: 'Descargar formulario', href: '/pdfs/traslado-hidrometro.pdf', type: 'secondary' as const },
     ],
   },
   {
@@ -87,7 +88,7 @@ const servicios = [
     costo: '₡5,000',
     actions: [
       { label: 'Solicitar', href: '/tramites/certificacion', type: 'primary' as const },
-      { label: 'Descargar formulario', href: '/formularios', type: 'secondary' as const },
+      { label: 'Descargar formulario', href: '/pdfs/certificacion-disponibilidad.pdf', type: 'secondary' as const },
     ],
   },
 ]

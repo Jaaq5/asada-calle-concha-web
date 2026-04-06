@@ -8,7 +8,7 @@ const tramites = [
     icon: FileText,
     title: 'Consultar Factura',
     description: 'Revisa el estado de cuenta, historial de consumo y realiza pagos en línea.',
-    href: '/factura',
+    href: 'https://acueductoscr.com/Recibos?provincia=2&idacueducto=254',
     featured: true,
   },
   {
