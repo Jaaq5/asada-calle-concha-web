@@ -44,8 +44,8 @@ export async function getContacto(): Promise<ContactoData> {
     };
 
     return contacto;
-  } catch (error) {
-    console.error("Error obteniendo datos de contacto:", error);
+  } catch {
+    // API not available - using default values (expected in development without Strapi)
     return contactoDefault;
   }
 }
