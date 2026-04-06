@@ -1,32 +1,8 @@
 import { Target, Eye, Heart, CheckCircle, User, Scale, Droplets } from 'lucide-react'
 import styles from './Nosotros.module.css'
+import { NosotrosData } from '@/types/nosotros'
 
-const juntaDirectiva = [
-  { cargo: 'Presidente', nombre: 'María Fernández Castro' },
-  { cargo: 'Vicepresidente', nombre: 'Carlos Rodríguez Mora' },
-  { cargo: 'Secretario', nombre: 'Ana Lucía Vargas Jiménez' },
-  { cargo: 'Tesorero', nombre: 'José Manuel Solís Hernández' },
-  { cargo: 'Vocal 1', nombre: 'Laura Patricia Méndez Rojas' },
-  { cargo: 'Vocal 2', nombre: 'Roberto Arturo Calvo Arias' },
-]
-
-const valores = [
-  'Transparencia',
-  'Compromiso',
-  'Servicio',
-  'Responsabilidad',
-  'Solidaridad',
-  'Sostenibilidad',
-]
-
-const marcoLegal = [
-  'Ley de Asociaciones Administradoras de Sistemas de Acueductos y Alcantarillados Comunales (Ley ASADAS)',
-  'Regulación y supervisión del Instituto Costarricense de Acueductos y Alcantarillados (AyA)',
-  'Reglamento de las ASADAS aprobado mediante Decreto Ejecutivo',
-  'Estatutos internos de ASADA Calle Concha',
-]
-
-export function Nosotros() {
+export function Nosotros({ data }: { data: NosotrosData }) {
   return (
     <section id="nosotros" className={styles.section}>
       <div className={styles.container}>
@@ -42,21 +18,9 @@ export function Nosotros() {
           <div className={styles.historiaContent}>
             <div className={styles.historiaText}>
               <h3>Nuestra Historia</h3>
-              <p>
-                La Asociación Administradora del Acueducto y Alcantarillado Sanitario de Calle Concha 
-                fue fundada con el propósito de garantizar el acceso a agua potable de calidad para 
-                todos los habitantes de nuestra comunidad.
-              </p>
-              <p>
-                Desde nuestros inicios, hemos trabajado incansablemente para mejorar la infraestructura 
-                hídrica, expandir nuestra cobertura y mantener los más altos estándares de calidad en 
-                el servicio de agua potable que brindamos a nuestros abonados.
-              </p>
-              <p>
-                Operamos bajo la regulación y supervisión del Instituto Costarricense de Acueductos 
-                y Alcantarillados (AyA), cumpliendo con todas las normativas vigentes para garantizar 
-                un servicio seguro y confiable.
-              </p>
+              {data.historia.map((parrafo, index) => (
+                <p key={index}>{parrafo}</p>
+              ))}
             </div>
             <div className={styles.historiaImage}>
               <Droplets size={80} />
@@ -71,11 +35,7 @@ export function Nosotros() {
               <Target size={24} />
             </div>
             <h3>Misión</h3>
-            <p>
-              Administrar y operar eficientemente el sistema de acueducto y alcantarillado de Calle 
-              Concha, garantizando el suministro de agua potable de calidad a toda la comunidad, 
-              con un enfoque de sostenibilidad ambiental y responsabilidad social.
-            </p>
+            <p>{data.mision}</p>
           </div>
 
           <div className={`${styles.mvvCard} ${styles.vision}`}>
@@ -83,11 +43,7 @@ export function Nosotros() {
               <Eye size={24} />
             </div>
             <h3>Visión</h3>
-            <p>
-              Ser una ASADA modelo a nivel regional, reconocida por la excelencia en la gestión 
-              del recurso hídrico, la innovación tecnológica y el compromiso permanente con el 
-              bienestar de nuestra comunidad y el medio ambiente.
-            </p>
+            <p>{data.vision}</p>
           </div>
 
           <div className={`${styles.mvvCard} ${styles.valores}`}>
@@ -97,7 +53,7 @@ export function Nosotros() {
             <h3>Valores</h3>
             <p>Los principios que guían nuestro trabajo diario:</p>
             <div className={styles.valoresList}>
-              {valores.map((valor) => (
+              {data.valores.map((valor) => (
                 <span key={valor} className={styles.valorTag}>
                   <CheckCircle size={14} />
                   {valor}
@@ -113,11 +69,11 @@ export function Nosotros() {
             <h3>Junta Directiva</h3>
             <span className={styles.periodoTag}>
               <User size={16} />
-              Período 2024-2027
+              {data.periodoJunta}
             </span>
           </div>
           <div className={styles.juntaGrid}>
-            {juntaDirectiva.map((miembro) => (
+            {data.juntaDirectiva.map((miembro) => (
               <div key={miembro.cargo} className={styles.juntaCard}>
                 <div className={styles.juntaAvatar}>
                   <User size={24} />
@@ -138,7 +94,7 @@ export function Nosotros() {
             Marco Legal
           </h3>
           <div className={styles.marcoList}>
-            {marcoLegal.map((item, index) => (
+            {data.marcoLegal.map((item, index) => (
               <div key={index} className={styles.marcoItem}>
                 <CheckCircle size={18} />
                 <span>{item}</span>
