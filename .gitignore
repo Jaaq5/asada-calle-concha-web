@@ -48,3 +48,4 @@ coverage/
 
 # 🔹 Otros
 *.pem
+.env
