@@ -89,9 +89,9 @@ export function Header() {
             className={styles.ctaButton}
           >
             <FileText size={18} />
-            Consultar Factura
+            Consultar Recibo
           </Link>
-
+          
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <button className={styles.menuButton} aria-label="Abrir menú">
@@ -116,12 +116,14 @@ export function Header() {
               </nav>
               <div className={styles.mobileCta}>
                 <Link
-                  href="/factura"
+                  href="https://acueductoscr.com/Recibos?provincia=2&idacueducto=254"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.mobileCtaButton}
                   onClick={() => setIsOpen(false)}
                 >
                   <FileText size={20} />
-                  Consultar Factura
+                  Consultar Recibo
                 </Link>
               </div>
             </SheetContent>

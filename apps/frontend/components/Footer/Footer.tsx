@@ -14,10 +14,10 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Consultar Factura", href: "/factura" },
-  { label: "Solicitar Servicio", href: "/solicitar" },
-  { label: "Reportar Avería", href: "/reportar" },
-  { label: "Formularios", href: "/formularios" },
+  { label: "Consultar Recibo", href: "https://acueductoscr.com/Recibos?provincia=2&idacueducto=254" },
+  { label: "Solicitar Servicio", href: "/servicios" },
+  { label: "Reportar Avería", href: "tel:+50624540300" },
+  { label: "Trámites", href: "/tramites" },
 ];
 
 export async function Footer() {
@@ -66,6 +66,8 @@ export async function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={styles.columnLink}
               >
                 {link.label}
