@@ -9,11 +9,64 @@ import {
   Clock,
   DollarSign,
   FileText,
-  ArrowRight
+  ArrowRight,
+  HandCoins,
+  PhoneCall,
+  Smartphone
 } from 'lucide-react'
 import styles from './Servicios.module.css'
 
 const servicios = [
+  {
+    id: 'certificaciones',
+    icon: FileCheck,
+    title: 'Certificación de Disponibilidad Hídrica',
+    badge: 'Principal',
+    badgeType: 'principal' as const,
+    description: 'Certificación que emite la ASADA para constatar la disponibilidad de agua potable en una propiedad específica.',
+    color: 'deepBlue' as const,
+    requisitos: [
+      'Copia de la cédula del propietario o representante legal',
+      'Certificación literal del Registro Nacional',
+      'Copia del plano catastrado certificado'
+    ],
+    //costo: 'Pago',
+    actions: [
+      { label: 'Solicitar', href: 'https://wa.me/50660622347?text=Hola%20buenas%2C%20quisiera%20solicitar%20una%20certificaci%C3%B3n%20de%20disponibilidad%20h%C3%ADdrica', type: 'primary' as const },
+      { label: 'Descargar formulario', href: '/pdfs/certificacion-disponibilidad.pdf', type: 'secondary' as const },
+    ],
+  },
+  {
+    id: 'traslado-hidrometro',
+    icon: Gauge,
+    title: 'Traslado de Hidrometro',
+    description: 'Reubicación del hidrometro por solicitud del abonado.',
+    color: 'blue' as const,
+    requisitos: [
+      'Copia de la cédula del propietario o representante legal',
+      'Copia de comprobante de pago del servicio al día',
+    ],
+    costo: 'Costo del traslado',
+    actions: [
+      { label: 'Solicitar', href: 'https://wa.me/50660622347?text=Hola%20buenas%2C%20quisiera%20solicitar%20un%20traslado%20de%20hidrometro', type: 'primary' as const },
+      { label: 'Descargar formulario', href: '/pdfs/traslado-hidrometro.pdf', type: 'secondary' as const },
+    ],
+  },
+  {
+    id: 'corta-reconexion',
+    icon: RefreshCw,
+    title: 'Corta y Reconexión',
+    description: 'Servicio de reconexión del servicio de agua potable por solicitud del abonado.',
+    color: 'deepBlue' as const,
+    requisitos: 'Pago de deuda pendiente',
+    costo: '₡ 9.045 + IVA',
+    actions: [
+      { label: 'Solicitar', href: 'tel:+50624540300', type: 'primary' as const, actionIcon: PhoneCall },
+      { label: 'Solicitar', href: 'https://wa.me/50660622347?text=Hola%20buenas%2C%20quisiera%20solicitar%20una%20reconexión%20del%20servicio%20de%20agua%20potable', type: 'primary' as const, actionIcon: Smartphone },
+    ],
+  },
+  
+  /*
   {
     id: 'agua-potable',
     icon: Droplets,
@@ -42,32 +95,7 @@ const servicios = [
       { label: 'Solicitar', href: '/solicitar', type: 'primary' as const },
       { label: 'Requisitos', href: '/servicios/nuevas-conexiones', type: 'secondary' as const },
     ],
-  },
-  {
-    id: 'reconexiones',
-    icon: RefreshCw,
-    title: 'Reconexiones',
-    description: 'Restablecimiento del servicio tras suspensión por morosidad o solicitud previa del abonado.',
-    color: 'deepBlue' as const,
-    requisitos: 'Pago de deuda pendiente',
-    costo: '₡15,000',
-    actions: [
-      { label: 'Solicitar', href: '/tramites/reconexion', type: 'primary' as const },
-    ],
-  },
-  {
-    id: 'traslado-hidrometro',
-    icon: Gauge,
-    title: 'Traslado de Hidrometro',
-    description: 'Reubicación del hidrometro por solicitud del abonado.',
-    color: 'blue' as const,
-    requisitos: 'Solicitud formal',
-    costo: '₡45,000',
-    actions: [
-      { label: 'Solicitar', href: '/tramites/traslado-hidrometro', type: 'primary' as const },
-      { label: 'Descargar formulario', href: '/pdfs/traslado-hidrometro.pdf', type: 'secondary' as const },
-    ],
-  },
+  }, 
   {
     id: 'reporte-fugas',
     icon: AlertTriangle,
@@ -78,19 +106,8 @@ const servicios = [
       { label: 'Reportar', href: '/reportar', type: 'report' as const },
     ],
   },
-  {
-    id: 'certificaciones',
-    icon: FileCheck,
-    title: 'Certificaciones',
-    description: 'Emisión de certificaciones de servicio activo, disponibilidad de agua y constancias para trámites legales.',
-    color: 'deepBlue' as const,
-    requisitos: 'Cédula del titular',
-    costo: '₡5,000',
-    actions: [
-      { label: 'Solicitar', href: '/tramites/certificacion', type: 'primary' as const },
-      { label: 'Descargar formulario', href: '/pdfs/certificacion-disponibilidad.pdf', type: 'secondary' as const },
-    ],
-  },
+  */
+  
 ]
 
 const iconColorClasses = {
@@ -140,31 +157,54 @@ export function Servicios() {
                 {(servicio.requisitos || servicio.costo) && (
                   <div className={styles.cardDetails}>
                     {servicio.requisitos && (
-                      <div className={styles.detailItem}>
-                        <FileText size={14} />
-                        <span>{servicio.requisitos}</span>
-                      </div>
+                      <>
+                        {Array.isArray(servicio.requisitos) ? (
+                          servicio.requisitos.map((req, index) => (
+                            <div key={index} className={styles.detailItem}>
+                              <FileText size={14} />
+                              <span>{req}</span>
+                            </div>
+                          ))
+                        ) : (
+                          <div className={styles.detailItem}>
+                            <FileText size={14} />
+                            <span>{servicio.requisitos}</span>
+                          </div>
+                        )}
+                      </>
                     )}
                     {servicio.costo && (
                       <div className={styles.detailItem}>
-                        <DollarSign size={14} />
-                        <span>{servicio.costo}</span>
+                        <HandCoins size={14} />
+                        <a 
+                          href="https://aresep.go.cr/agua-potable/tarifas/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: 'underline', color: 'inherit' }}
+                        >
+                          {servicio.costo}
+                        </a>
                       </div>
                     )}
                   </div>
                 )}
 
                 <div className={styles.cardActions}>
-                  {servicio.actions.map((action) => (
-                    <Link
-                      key={action.label}
-                      href={action.href}
-                      className={`${styles.actionButton} ${actionTypeClasses[action.type]}`}
-                    >
-                      {action.label}
-                      <ArrowRight size={14} />
-                    </Link>
-                  ))}
+                  {servicio.actions.map((action) => {
+                    const ActionIconComponent = ('actionIcon' in action ? action.actionIcon : ArrowRight) as any;
+                    return (
+                      <Link
+                        key={action.href}
+                        href={action.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.actionButton} ${actionTypeClasses[action.type]}`}
+                      >
+                        {action.label}
+                        <ActionIconComponent size={14} />
+                      </Link>
+                    )
+                  })}
                 </div>
               </article>
             )

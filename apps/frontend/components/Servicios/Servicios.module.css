@@ -91,14 +91,29 @@
   color: var(--asada-blue-light);
 }
 
+:global(.dark) .iconBlue {
+  background-color: rgba(28, 167, 236, 0.2);
+  color: var(--asada-blue-light);
+}
+
 .iconGreen {
   background-color: rgba(59, 178, 115, 0.15);
+  color: var(--asada-green);
+}
+
+:global(.dark) .iconGreen {
+  background-color: rgba(59, 178, 115, 0.2);
   color: var(--asada-green);
 }
 
 .iconDeepBlue {
   background-color: rgba(11, 79, 138, 0.15);
   color: var(--asada-blue-deep);
+}
+
+:global(.dark) .iconDeepBlue {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--asada-white);
 }
 
 .cardTitleWrapper {
@@ -129,8 +144,18 @@
   color: var(--asada-blue-deep);
 }
 
+:global(.dark) .badgePrincipal {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--asada-white);
+}
+
 .badgePopular {
   background-color: rgba(59, 178, 115, 0.15);
+  color: var(--asada-green);
+}
+
+:global(.dark) .badgePopular {
+  background-color: rgba(59, 178, 115, 0.2);
   color: var(--asada-green);
 }
 
@@ -198,6 +223,15 @@
   background-color: #094175;
 }
 
+:global(.dark) .actionPrimary {
+  background-color: var(--asada-white);
+  color: var(--asada-blue-deep);
+}
+
+:global(.dark) .actionPrimary:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 .actionSecondary {
   background-color: transparent;
   color: var(--asada-blue-deep);
@@ -209,6 +243,16 @@
   color: var(--asada-white);
 }
 
+:global(.dark) .actionSecondary {
+  color: var(--asada-white);
+  border-color: var(--asada-white);
+}
+
+:global(.dark) .actionSecondary:hover {
+  background-color: var(--asada-white);
+  color: var(--asada-blue-deep);
+}
+
 .actionReport {
   background-color: rgba(245, 158, 11, 0.15);
   color: #D97706;
@@ -216,6 +260,10 @@
 
 .actionReport:hover {
   background-color: rgba(245, 158, 11, 0.25);
+}
+
+:global(.dark) .actionReport {
+  color: #fbbf24;
 }
 
 /* Tablet */

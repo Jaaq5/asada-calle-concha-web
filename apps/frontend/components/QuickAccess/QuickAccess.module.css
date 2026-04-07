@@ -60,11 +60,22 @@
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(11, 79, 138, 0.12);
-  border-color: var(--asada-blue-light);
+  border-color: var(--asada-blue-deep);
+  background-color: var(--asada-blue-deep);
+}
+
+.card:hover .cardTitle {
+  color: var(--asada-white);
 }
 
 :global(.dark) .card:hover {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  background-color: var(--asada-white);
+  border-color: var(--asada-white);
+}
+
+:global(.dark) .card:hover .cardTitle {
+  color: var(--asada-blue-deep);
 }
 
 .iconWrapper {
@@ -80,10 +91,22 @@
 
 .card:hover .iconWrapper {
   transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--asada-white);
+}
+
+:global(.dark) .card:hover .iconWrapper {
+  background-color: rgba(11, 79, 138, 0.15);
+  color: var(--asada-blue-deep);
 }
 
 .iconBlue {
   background-color: rgba(28, 167, 236, 0.15);
+  color: var(--asada-blue-light);
+}
+
+:global(.dark) .iconBlue {
+  background-color: rgba(28, 167, 236, 0.2);
   color: var(--asada-blue-light);
 }
 
@@ -92,9 +115,19 @@
   color: var(--asada-green);
 }
 
+:global(.dark) .iconGreen {
+  background-color: rgba(59, 178, 115, 0.2);
+  color: var(--asada-green);
+}
+
 .iconDeepBlue {
   background-color: rgba(11, 79, 138, 0.15);
   color: var(--asada-blue-deep);
+}
+
+:global(.dark) .iconDeepBlue {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--asada-white);
 }
 
 .cardTitle {
