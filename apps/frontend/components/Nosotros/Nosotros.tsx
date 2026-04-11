@@ -1,4 +1,5 @@
-import { Target, Eye, Heart, CheckCircle, User, Scale, Droplets } from 'lucide-react'
+import { Target, Eye, Heart, CheckCircle, User, Scale } from 'lucide-react'
+import Image from 'next/image'
 import styles from './Nosotros.module.css'
 import { NosotrosData } from '@/types/nosotros'
 
@@ -23,7 +24,12 @@ export function Nosotros({ data }: { data: NosotrosData }) {
               ))}
             </div>
             <div className={styles.historiaImage}>
-              <Droplets size={80} />
+              <Image 
+                src="/images/gallery/tanque1.jpeg" 
+                alt="Historia de la ASADA" 
+                fill
+                style={{ objectFit: 'cover' }}
+              />
             </div>
           </div>
         </div>

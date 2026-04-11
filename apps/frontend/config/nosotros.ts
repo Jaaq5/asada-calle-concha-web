@@ -2,7 +2,7 @@ import { NosotrosData } from "@/types/nosotros";
 
 export const nosotrosDefault: NosotrosData = {
   historia: [
-    "La Asociación Administradora del Acueducto y Alcantarillado Sanitario de Calle Concha fue fundada con el propósito de garantizar el acceso a agua potable de calidad para todos los habitantes de nuestra comunidad.",
+    "La Asociación Administradora Del Acueducto Y Alcantarillado Sanitario De Calle Concha fue fundada con el propósito de garantizar el acceso a agua potable de calidad para todos los habitantes de nuestra comunidad.",
     "Desde nuestros inicios, hemos trabajado incansablemente para mejorar la infraestructura hídrica, expandir nuestra cobertura y mantener los más altos estándares de calidad en el servicio de agua potable que brindamos a nuestros abonados.",
     "Operamos bajo la regulación y supervisión del Instituto Costarricense de Acueductos y Alcantarillados (AyA), cumpliendo con todas las normativas vigentes para garantizar un servicio seguro y confiable."
   ],
@@ -18,14 +18,14 @@ export const nosotrosDefault: NosotrosData = {
     "Solidaridad",
     "Sostenibilidad",
   ],
-  periodoJunta: "Período 2024-2027",
+  periodoJunta: "Período 2025-2026",
   juntaDirectiva: [
-    { cargo: "Presidente(a)", nombre: "María Fernández Castro" },
-    { cargo: "Vicepresidente(a)", nombre: "Carlos Rodríguez Mora" },
-    { cargo: "Secretario(a)", nombre: "Ana Lucía Vargas Jiménez" },
-    { cargo: "Tesorero(a)", nombre: "José Manuel Solís Hernández" },
-    { cargo: "Fiscal", nombre: "Laura Patricia Méndez Rojas" },
-    { cargo: "Vocal", nombre: "Roberto Arturo Calvo Arias" },
+    { cargo: "Presidente", nombre: "Melvin Alvarado Soto" },
+    { cargo: "Vicepresidente", nombre: "Sheila Yasmin Ramos Olmos" },
+    { cargo: "Secretaria", nombre: "Rita Lorena Ramirez Guerrero" },
+    { cargo: "Tesorero", nombre: "Guillermo Arias Chacon" },
+    { cargo: "Vocal", nombre: "Danilo Arrieta Alfaro" },
+    { cargo: "Fiscal", nombre: "Alejandro Ledezma Jimenez" },
   ],
   marcoLegal: [
     "Ley de Asociaciones Administradoras de Sistemas de Acueductos y Alcantarillados Comunales (Ley ASADAS)",
