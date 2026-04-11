@@ -7,11 +7,14 @@ import {
   BarChart3, 
   BookOpen,
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  BadgeCent,
+  ReceiptCent
 } from 'lucide-react'
 import styles from './Transparencia.module.css'
 
 const documentos = [
+  /*
   {
     id: 'actas',
     icon: FileText,
@@ -20,12 +23,13 @@ const documentos = [
     href: '/transparencia/actas',
     color: 'blue' as const,
   },
+  */
   {
     id: 'estados-financieros',
-    icon: DollarSign,
+    icon: BadgeCent,
     title: 'Estados Financieros',
     description: 'Informes financieros mensuales y anuales auditados.',
-    href: '/transparencia/estados-financieros',
+    href: '/transparencia',
     color: 'green' as const,
   },
   {
@@ -33,15 +37,15 @@ const documentos = [
     icon: Calculator,
     title: 'Presupuestos',
     description: 'Presupuestos ordinarios y extraordinarios aprobados.',
-    href: '/transparencia/presupuestos',
+    href: '/transparencia',
     color: 'deepBlue' as const,
   },
   {
     id: 'tarifas',
-    icon: Receipt,
+    icon: ReceiptCent,
     title: 'Tarifas Vigentes',
     description: 'Estructura tarifaria actualizada y aprobada por ARESEP.',
-    href: '/transparencia/tarifas',
+    href: 'https://aresep.go.cr/agua-potable/tarifas',
     color: 'blue' as const,
   },
   {
@@ -49,7 +53,7 @@ const documentos = [
     icon: BarChart3,
     title: 'Informes Anuales',
     description: 'Reportes de gestión y rendición de cuentas anuales.',
-    href: '/transparencia/informes',
+    href: '/transparencia',
     color: 'green' as const,
   },
   {
@@ -57,7 +61,7 @@ const documentos = [
     icon: BookOpen,
     title: 'Reglamento Interno',
     description: 'Normativa interna y estatutos de la ASADA.',
-    href: '/transparencia/reglamento',
+    href: '/transparencia',
     color: 'deepBlue' as const,
   },
 ]
@@ -83,7 +87,7 @@ export function Transparencia() {
           {documentos.map((doc) => {
             const IconComponent = doc.icon
             return (
-              <Link key={doc.id} href={doc.href} className={styles.card}>
+              <Link key={doc.id} href={doc.href} target="_blank" rel="noopener noreferrer" className={styles.card}>
                 <div className={`${styles.iconWrapper} ${iconColorClasses[doc.color]}`}>
                   <IconComponent size={24} />
                 </div>
