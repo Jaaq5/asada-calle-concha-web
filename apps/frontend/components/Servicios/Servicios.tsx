@@ -33,7 +33,7 @@ const servicios = [
     //costo: 'Pago',
     actions: [
       { label: 'Solicitar', href: 'https://wa.me/50660622347?text=Hola%20buenas%2C%20quisiera%20solicitar%20una%20certificaci%C3%B3n%20de%20disponibilidad%20h%C3%ADdrica', type: 'primary' as const },
-      { label: 'Descargar formulario', href: '/pdfs/certificacion-disponibilidad.pdf', type: 'secondary' as const },
+      { label: 'Descargar formulario', href: '/pdfs/servicios/certificacion-disponibilidad.pdf', type: 'secondary' as const },
     ],
   },
   {
@@ -49,7 +49,7 @@ const servicios = [
     costo: 'Costo del traslado',
     actions: [
       { label: 'Solicitar', href: 'https://wa.me/50660622347?text=Hola%20buenas%2C%20quisiera%20solicitar%20un%20traslado%20de%20hidrometro', type: 'primary' as const },
-      { label: 'Descargar formulario', href: '/pdfs/traslado-hidrometro.pdf', type: 'secondary' as const },
+      { label: 'Descargar formulario', href: '/pdfs/servicios/traslado-hidrometro.pdf', type: 'secondary' as const },
     ],
   },
   {

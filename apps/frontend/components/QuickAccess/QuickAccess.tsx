@@ -12,7 +12,7 @@ const quickAccessItems = [
   {
     icon: Download,
     title: "Descargar Certificación de Disponibilidad Hídrica",
-    href: "/pdfs/certificacion-disponibilidad.pdf",
+    href: "/pdfs/servicios/certificacion-disponibilidad.pdf",
     color: "deepBlue" as const,
   },
   {

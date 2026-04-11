@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FileText, PlusCircle, AlertTriangle, UserCog, ArrowRight } from 'lucide-react'
+import { FileText, PlusCircle, AlertTriangle, UserCog, ArrowRight, UserX, DropletOff, FileMinus } from 'lucide-react'
 import styles from './TramitesOnline.module.css'
 
 const tramites = [
@@ -7,32 +7,32 @@ const tramites = [
     id: 'consultar-factura',
     icon: FileText,
     title: 'Consultar Factura',
-    description: 'Revisa el estado de cuenta, historial de consumo y realiza pagos en línea.',
+    description: 'Revisar el estado de cuenta e historial de consumo.',
     href: 'https://acueductoscr.com/Recibos?provincia=2&idacueducto=254',
     featured: true,
   },
   {
-    id: 'nuevo-servicio',
-    icon: PlusCircle,
-    title: 'Solicitar Servicio',
-    description: 'Inicia tu solicitud de nuevo servicio de agua potable completamente en línea.',
-    href: '/solicitar',
+    id: 'renuncia-derecho-paja',
+    icon: FileMinus,
+    title: 'Renuncia al derecho de paja',
+    description: 'Descargar formulario para solicitar la renuncia al derecho de paja.',
+    href: '/pdfs/tramites/renuncia-derecho-paja.pdf',
     featured: false,
   },
   {
-    id: 'reportar-averia',
-    icon: AlertTriangle,
-    title: 'Reportar Avería',
-    description: 'Informa sobre fugas, daños o problemas con el servicio de forma inmediata.',
-    href: '/reportar',
+    id: 'eliminacion-servicio-agua',
+    icon: DropletOff,
+    title: 'Eliminación del servicio de agua',
+    description: 'Descargar formulario para la eliminación del servicio.',
+    href: '/pdfs/tramites/eliminacion-servicio-agua.pdf',
     featured: false,
   },
   {
-    id: 'actualizar-datos',
-    icon: UserCog,
-    title: 'Actualizar Datos',
-    description: 'Mantén tu información de contacto y datos de abonado actualizados.',
-    href: '/actualizar-datos',
+    id: 'renuncia-asociado',
+    icon: UserX,
+    title: 'Renuncia condición de asociado',
+    description: 'Descargar formulario para solicitar la renuncia de condición de asociado.',
+    href: '/pdfs/tramites/renuncia-asociado.pdf',
     featured: false,
   },
 ]
@@ -55,6 +55,8 @@ export function TramitesOnline() {
               <Link
                 key={tramite.id}
                 href={tramite.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${styles.card} ${tramite.featured ? styles.featured : ''}`}
               >
                 <div className={styles.iconWrapper}>

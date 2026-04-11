@@ -98,7 +98,7 @@ export function Header() {
                 <Menu size={24} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="dark:bg-[var(--asada-bg-primary)] dark:border-[var(--asada-border)]">
               <SheetHeader>
                 <SheetTitle>Menú</SheetTitle>
               </SheetHeader>
