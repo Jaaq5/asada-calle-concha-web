@@ -11,7 +11,7 @@ interface QrCodeProps {
 }
 
 export function QrCode({ 
-  title = '¡Bienvenidos a la Asamblea General!', 
+  title = '¡Bienvenidos a la Asamblea General Ordinaria!', 
   subtitle = 'Escanea el código QR con tu cámara para acceder al sitio web. Presiona sobre el código para ampliarlo.' 
 }: QrCodeProps) {
   const [isExpanded, setIsExpanded] = useState(false)
