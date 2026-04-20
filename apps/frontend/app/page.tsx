@@ -9,7 +9,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <QrCode />
+      {/*<QrCode />*/}
       <Hero />
       <QuickAccess />
       <Notices data={noticiasData} variant="home" />
