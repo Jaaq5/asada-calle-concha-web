@@ -33,37 +33,37 @@ export const noticiasDefault: NoticiasData = {
   gallery: [
     {
       id: 1,
-      src: '/images/gallery/muestreos1.jpeg',
+      src: '/images/gallery/muestreo1.webp',
       alt: 'Muestreo de agua',
       caption: 'Muestreo de agua',
     },
     {
       id: 2,
-      src: '/images/gallery/muestreos2.jpeg',
+      src: '/images/gallery/muestreo2.webp',
       alt: 'Muestreo de agua',
       caption: 'Muestreo de agua',
     },
     {
       id: 3,
-      src: '/images/gallery/muestreos3.jpeg',
+      src: '/images/gallery/muestreo3.webp',
       alt: 'Muestreo de agua',
       caption: 'Muestreo de agua',
     },
     {
       id: 4,
-      src: '/images/gallery/muestreos4.jpeg',
+      src: '/images/gallery/muestreo4.webp',
       alt: 'Muestreo de agua',
       caption: 'Muestreo de agua',
     },
     {
       id: 5,
-      src: '/images/gallery/muestreos5.jpeg',
+      src: '/images/gallery/muestreo5.webp',
       alt: 'Muestreo de agua',
       caption: 'Muestreo de agua',
     },
     {
       id: 6,
-      src: '/images/gallery/muestreos6.jpeg',
+      src: '/images/gallery/muestreo6.webp',
       alt: 'Muestreo de agua',
       caption: 'Muestreo de agua',
     },

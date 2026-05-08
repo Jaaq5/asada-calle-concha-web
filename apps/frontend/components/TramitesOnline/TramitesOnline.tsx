@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FileText, PlusCircle, AlertTriangle, UserCog, ArrowRight, UserX, DropletOff, FileMinus } from 'lucide-react'
+import { FileText, PlusCircle, AlertTriangle, UserCog, ArrowRight, UserX, DropletOff, FileMinus, UserPlus } from 'lucide-react'
 import styles from './TramitesOnline.module.css'
 
 const tramites = [
@@ -10,6 +10,14 @@ const tramites = [
     description: 'Revisar el estado de cuenta e historial de consumo.',
     href: 'https://acueductoscr.com/Recibos?provincia=2&idacueducto=254',
     featured: true,
+  },
+  {
+    id: 'quejas-sugerencias',
+    icon: AlertTriangle,
+    title: 'Sugerencias, Quejas y Reclamos',
+    description: 'Presentar sus sugerencias, quejas y reclamos a la ASADA.',
+    href: 'https://wa.me/50660622347?text=Hola%20buenas,%20me%20gustaría%20presentar%20una%20queja.',
+    featured: false,
   },
   {
     id: 'renuncia-derecho-paja',
@@ -25,6 +33,14 @@ const tramites = [
     title: 'Eliminación del servicio de agua',
     description: 'Descargar formulario para la eliminación del servicio.',
     href: '/pdfs/tramites/eliminacion-servicio-agua.pdf',
+    featured: false,
+  },
+  {
+    id: 'inscripcion-asociado',
+    icon: UserPlus,
+    title: 'Inscripción como asociado',
+    description: 'Solicitar la inscripción como nuevo asociado a la ASADA.',
+    href: 'https://wa.me/50660622347?text=Hola,%20me%20gustaría%20inscribirme%20como%20nuevo%20asociado%20a%20la%20ASADA.',
     featured: false,
   },
   {

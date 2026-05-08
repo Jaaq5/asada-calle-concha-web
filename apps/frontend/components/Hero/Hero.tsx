@@ -26,23 +26,14 @@ export function Hero() {
               Solicitar Servicio
             </Link>
 
-            {/*
-
-            <Link
-              href="https://acueductoscr.com/Recibos?provincia=2&idacueducto=254"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondaryButton}
-            >
+            <Link href="/noticias" className={styles.secondaryButton}>
               <FileText size={20} />
-              Consultar Factura
+              Noticias Recientes
             </Link>
 
-            */}
-
-            <Link href="/noticias" className={styles.secondaryButton}>
+            <Link href="/tramites" className={styles.secondaryButton}>
               <AlertTriangle size={20} />
-              Avisos Importantes
+              Sugerencias, Quejas y Reclamos
             </Link>
           </div>
         </div>

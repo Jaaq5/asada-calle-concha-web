@@ -106,10 +106,10 @@ export async function Footer() {
             reservados.
           </p>
           <div className={styles.legal}>
-            <Link href="/privacidad" className={styles.legalLink}>
+            <Link href="/#" className={styles.legalLink}>
               Política de Privacidad
             </Link>
-            <Link href="/terminos" className={styles.legalLink}>
+            <Link href="/#" className={styles.legalLink}>
               Términos de Uso
             </Link>
           </div>
