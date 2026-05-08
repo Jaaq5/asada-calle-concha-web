@@ -16,7 +16,7 @@ const geist = Geist({ subsets: ["latin"] });
 const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ASADA Calle Concha | Agua potable para nuestra comunidad",
+  title: "ASADA Calle Concha | Agua 100% Potable",
   description:
     "Sitio oficial de ASADA Calle Concha. Consulta tu factura, solicita servicios, descarga formularios y mantente informado sobre el servicio de agua potable en nuestra comunidad.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ASADA Calle Concha" }],
   openGraph: {
-    title: "ASADA Calle Concha | Agua potable para nuestra comunidad",
+    title: "ASADA Calle Concha | Agua 100% Potable",
     description:
       "Consulta tu factura, solicita servicios y mantente informado sobre el servicio de agua potable.",
     type: "website",

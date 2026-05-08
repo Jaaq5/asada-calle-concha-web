@@ -57,7 +57,7 @@ export function Nosotros({ data }: { data: NosotrosData }) {
             <div className={`${styles.mvvIconWrapper} ${styles.valores}`}>
               <Heart size={24} />
             </div>
-            <h3>Valores</h3>
+            <h3>Principios</h3>
             <p>Los principios que guían nuestro trabajo diario:</p>
             <div className={styles.valoresList}>
               {data.valores.map((valor) => (

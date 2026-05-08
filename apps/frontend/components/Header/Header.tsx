@@ -52,7 +52,7 @@ export function Header() {
           <div className={styles.logoText}>
             <span className={styles.logoTitle}>ASADA Calle Concha</span>
             <span className={styles.logoSlogan}>
-              Agua potable para nuestra comunidad
+              Agua 100% Potable
             </span>
           </div>
         </Link>
