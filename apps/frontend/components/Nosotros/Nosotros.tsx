@@ -26,7 +26,7 @@ export function Nosotros({ data }: { data: NosotrosData }) {
             </div>
             <div className={styles.historiaImage}>
               <Image 
-                src="/images/gallery/tanque1.webp" 
+                src="/images/nosotros.webp" 
                 alt="Historia de la ASADA" 
                 fill
                 style={{ objectFit: 'cover' }}

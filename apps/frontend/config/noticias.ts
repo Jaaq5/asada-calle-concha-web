@@ -1,4 +1,29 @@
-import { NoticiasData } from '@/types/noticias'
+import { NoticiasData, GalleryImage } from '@/types/noticias'
+import fs from 'fs'
+import path from 'path'
+
+function getGalleryImages(): GalleryImage[] {
+  try {
+    const galleryDir = path.join(process.cwd(), 'public/images/gallery')
+    const files = fs.readdirSync(galleryDir)
+    
+    return files
+      .filter(file => /\.(webp|jpg|jpeg|png)$/i.test(file))
+      .map((file, index) => {
+        const baseName = file.replace(/\.[^/.]+$/, '')
+
+        return {
+          id: index + 1,
+          src: `/images/gallery/${file}`,
+          alt: baseName,
+          caption: baseName,
+        }
+      })
+  } catch (error) {
+    console.warn('Could not read gallery directory:', error)
+    return []
+  }
+}
 
 export const noticiasDefault: NoticiasData = {
   notices: [
@@ -30,44 +55,7 @@ export const noticiasDefault: NoticiasData = {
       href: '/noticias/ampliacion-red',
     },
   ],
-  gallery: [
-    {
-      id: 1,
-      src: '/images/gallery/muestreo1.webp',
-      alt: 'Muestreo de agua',
-      caption: 'Muestreo de agua',
-    },
-    {
-      id: 2,
-      src: '/images/gallery/muestreo2.webp',
-      alt: 'Muestreo de agua',
-      caption: 'Muestreo de agua',
-    },
-    {
-      id: 3,
-      src: '/images/gallery/muestreo3.webp',
-      alt: 'Muestreo de agua',
-      caption: 'Muestreo de agua',
-    },
-    {
-      id: 4,
-      src: '/images/gallery/muestreo4.webp',
-      alt: 'Muestreo de agua',
-      caption: 'Muestreo de agua',
-    },
-    {
-      id: 5,
-      src: '/images/gallery/muestreo5.webp',
-      alt: 'Muestreo de agua',
-      caption: 'Muestreo de agua',
-    },
-    {
-      id: 6,
-      src: '/images/gallery/muestreo6.webp',
-      alt: 'Muestreo de agua',
-      caption: 'Muestreo de agua',
-    },
-  ],
+  gallery: getGalleryImages(),
   facebook: {
     pageUrl: 'https://www.facebook.com/AsadaCalleConcha',
     pageName: 'ASADA Calle Concha',

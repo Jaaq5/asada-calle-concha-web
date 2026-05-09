@@ -1,0 +1,233 @@
+/* ===================== Gallery Section ===================== */
+
+.gallerySection {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: var(--asada-bg-primary);
+  border: 1px solid var(--asada-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+:global(.dark) .gallerySection {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.galleryIcon {
+  color: var(--asada-blue-light);
+  flex-shrink: 0;
+}
+
+.mediaSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+}
+
+.mediaSectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--asada-text-primary);
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  transition: transform 0.3s ease;
+}
+
+.galleryItem:hover {
+  transform: scale(1.02);
+}
+
+.galleryItem:focus-visible {
+  outline: 2px solid var(--asada-blue-light);
+  outline-offset: 2px;
+}
+
+.galleryImage {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryItem:hover .galleryImage {
+  transform: scale(1.08);
+}
+
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galleryItem:hover .galleryOverlay {
+  opacity: 1;
+}
+
+.galleryCaption {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.galleryCount {
+  text-align: center;
+  margin: 0.75rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--asada-text-secondary);
+}
+
+/* ===================== Lightbox ===================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lightboxNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.lightboxNav:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lightboxPrev {
+  left: 1rem;
+}
+
+.lightboxNext {
+  right: 1rem;
+}
+
+.lightboxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightboxCaption {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+.lightboxCounter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.375rem 1rem;
+  border-radius: 20px;
+}
+
+/* ===================== Responsive ===================== */
+
+/* Tablet */
+@media (min-width: 640px) {
+  .galleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .galleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
