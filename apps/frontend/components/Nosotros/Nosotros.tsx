@@ -2,7 +2,6 @@ import { Target, Eye, Heart, CheckCircle, User, Scale } from 'lucide-react'
 import Image from 'next/image'
 import styles from './Nosotros.module.css'
 import { NosotrosData } from '@/types/nosotros'
-import { Video } from '@/components/Video/Video'
 
 export function Nosotros({ data }: { data: NosotrosData }) {
   return (
@@ -108,11 +107,6 @@ export function Nosotros({ data }: { data: NosotrosData }) {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Video Destacado */}
-        <div style={{ marginTop: '3rem' }}>
-          <Video />
         </div>
       </div>
     </section>
