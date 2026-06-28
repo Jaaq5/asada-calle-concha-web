@@ -130,12 +130,41 @@
   background-color: rgba(28, 167, 236, 0.2);
 }
 
+.userButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--asada-border);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--asada-blue-deep);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+:global(.dark) .userButton {
+  color: var(--asada-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.userButton:hover {
+  background-color: rgba(28, 167, 236, 0.1);
+  border-color: var(--asada-blue-light);
+}
+
+:global(.dark) .userButton:hover {
+  background-color: rgba(28, 167, 236, 0.2);
+}
+
 .ctaButton {
   display: none;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--asada-white);
   background-color: var(--asada-green);
@@ -213,6 +242,9 @@
   margin-top: 1rem;
   padding: 1rem;
   border-top: 1px solid var(--asada-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .mobileCtaButton {
@@ -237,6 +269,38 @@
   background-color: #2d9a5f;
 }
 
+.mobileUserButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--asada-blue-deep);
+  background-color: transparent;
+  border: 1px solid var(--asada-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+:global(.dark) .mobileUserButton {
+  color: var(--asada-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.mobileUserButton:hover {
+  background-color: rgba(28, 167, 236, 0.1);
+  border-color: var(--asada-blue-light);
+}
+
+:global(.dark) .mobileUserButton:hover {
+  background-color: rgba(28, 167, 236, 0.2);
+}
+
 /* Tablet and Desktop */
 @media (min-width: 768px) {
   .container {
@@ -244,6 +308,10 @@
   }
 
   .ctaButton {
+    display: flex;
+  }
+
+  .userButton {
     display: flex;
   }
 }

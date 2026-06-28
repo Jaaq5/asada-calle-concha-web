@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, FileText, Sun, Moon } from "lucide-react";
+import { Menu, FileText, Sun, Moon, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   Sheet,
@@ -83,6 +83,16 @@ export function Header() {
           </button>
 
           <Link
+            href="http://localhost:1337"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.userButton}
+            aria-label="Administración"
+          >
+            <User size={20} />
+          </Link>
+
+          <Link
             href="https://acueductoscr.com/Recibos?provincia=2&idacueducto=254"
             target="_blank"
             rel="noopener noreferrer"
@@ -124,6 +134,16 @@ export function Header() {
                 >
                   <FileText size={20} />
                   Consultar Recibo
+                </Link>
+                <Link
+                  href="http://localhost:1337"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.mobileUserButton}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <User size={20} />
+                  Panel de Control
                 </Link>
               </div>
             </SheetContent>
