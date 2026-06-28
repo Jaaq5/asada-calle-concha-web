@@ -33,6 +33,14 @@
   transition: color 0.2s ease;
 }
 
+/* ===================== Featured Image ===================== */
+
+.featuredImageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 /* ===================== Notice Cards ===================== */
 
 .grid {

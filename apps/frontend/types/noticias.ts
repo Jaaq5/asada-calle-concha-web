@@ -25,4 +25,5 @@ export interface NoticiasData {
   notices: Notice[]
   gallery: GalleryImage[]
   facebook: FacebookConfig
+  payDayImage?: GalleryImage
 }

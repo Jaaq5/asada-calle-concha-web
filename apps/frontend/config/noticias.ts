@@ -56,6 +56,12 @@ export const noticiasDefault: NoticiasData = {
     },
   ],
   gallery: getGalleryImages(),
+  payDayImage: {
+    id: 0,
+    src: '/images/fecha-pago-2026.webp',
+    alt: 'ASADA Calle Concha',
+    caption: 'ASADA Calle Concha',
+  },
   facebook: {
     pageUrl: 'https://www.facebook.com/AsadaCalleConcha',
     pageName: 'ASADA Calle Concha',

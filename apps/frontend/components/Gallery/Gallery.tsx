@@ -10,9 +10,11 @@ interface GalleryProps {
   images: GalleryImage[]
   showCount?: boolean
   totalCount?: number
+  single?: boolean
+  title?: string
 }
 
-export function Gallery({ images, showCount = false, totalCount = 0 }: GalleryProps) {
+export function Gallery({ images, showCount = false, totalCount = 0, single = false, title = 'Galería de Imágenes' }: GalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
@@ -36,9 +38,9 @@ export function Gallery({ images, showCount = false, totalCount = 0 }: GalleryPr
       <div className={styles.gallerySection}>
         <div className={styles.mediaSectionHeader}>
           <Images size={22} className={styles.galleryIcon} />
-          <h3 className={styles.mediaSectionTitle}>Galería de Imágenes</h3>
+          <h3 className={styles.mediaSectionTitle}>{title}</h3>
         </div>
-        <div className={styles.galleryGrid}>
+        <div className={styles.galleryGrid} style={single ? { gridTemplateColumns: '1fr' } : undefined}>
           {images.map((image, index) => (
             <button
               key={image.id}

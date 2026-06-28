@@ -30,6 +30,13 @@ export function Notices({ data, variant = 'full' }: NoticesProps) {
           </p>
         </header>
 
+        {/* Pay Day Image */}
+        {data.payDayImage && (
+          <div className={styles.featuredImageWrapper}>
+            <Gallery images={[data.payDayImage]} single title="Fechas de pago y suspensión de servicio" />
+          </div>
+        )}
+
         {/* Notice Cards */}
         {/*
         <div className={styles.grid}>

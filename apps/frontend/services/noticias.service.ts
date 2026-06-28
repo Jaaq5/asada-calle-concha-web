@@ -42,6 +42,9 @@ export async function getNoticias(): Promise<NoticiasData> {
         pageUrl: data.facebook?.pageUrl ?? noticiasDefault.facebook.pageUrl,
         pageName: data.facebook?.pageName ?? noticiasDefault.facebook.pageName,
       },
+      payDayImage: data.payDayImage
+        ? { id: data.payDayImage.id, src: data.payDayImage.src, alt: data.payDayImage.alt, caption: data.payDayImage.caption }
+        : noticiasDefault.payDayImage,
     }
 
     return noticias
