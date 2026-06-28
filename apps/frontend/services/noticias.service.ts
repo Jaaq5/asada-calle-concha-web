@@ -6,7 +6,9 @@ export async function getNoticias(): Promise<NoticiasData> {
     const API_URL = process.env.API_URL || 'http://localhost:1337'
 
     const res = await fetch(`${API_URL}/api/noticia?populate=*`, {
-      next: { revalidate: 0 },
+      next: {
+        tags: ['noticia'],
+      },
     })
 
     if (!res.ok) {
@@ -32,12 +34,14 @@ export async function getNoticias(): Promise<NoticiasData> {
           href: n.href,
         })) ?? noticiasDefault.notices,
       gallery:
-        data.gallery?.map((img: any) => ({
-          id: img.id,
-          src: `${API_URL}${img.url}`,
-          alt: img.alternativeText ?? '',
-          caption: img.caption ?? '',
-        })) ?? noticiasDefault.gallery,
+        data.gallery
+          ?.map((img: any) => ({
+            id: img.id,
+            src: `${API_URL}${img.url}`,
+            alt: img.alternativeText ?? '',
+            caption: img.caption ?? '',
+          }))
+          .sort((a: any, b: any) => b.id - a.id) ?? noticiasDefault.gallery,
       facebook: {
         pageUrl: data.facebook?.pageUrl ?? noticiasDefault.facebook.pageUrl,
         pageName: data.facebook?.pageName ?? noticiasDefault.facebook.pageName,
