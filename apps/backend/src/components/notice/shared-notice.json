@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_notice_shared_notices",
+  "info": {
+    "displayName": "shared.notice"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "suspension",
+        "comunicado",
+        "noticia"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    },
+    "href": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -5,8 +5,8 @@ export async function getNoticias(): Promise<NoticiasData> {
   try {
     const API_URL = process.env.API_URL || 'http://localhost:1337'
 
-    const res = await fetch(`${API_URL}/api/noticias?populate=*`, {
-      next: { revalidate: 3600 },
+    const res = await fetch(`${API_URL}/api/noticia?populate=*`, {
+      next: { revalidate: 0 },
     })
 
     if (!res.ok) {
@@ -32,18 +32,23 @@ export async function getNoticias(): Promise<NoticiasData> {
           href: n.href,
         })) ?? noticiasDefault.notices,
       gallery:
-        data.gallery?.map((g: any) => ({
-          id: g.id,
-          src: g.src,
-          alt: g.alt,
-          caption: g.caption,
+        data.gallery?.map((img: any) => ({
+          id: img.id,
+          src: `${API_URL}${img.url}`,
+          alt: img.alternativeText ?? '',
+          caption: img.caption ?? '',
         })) ?? noticiasDefault.gallery,
       facebook: {
         pageUrl: data.facebook?.pageUrl ?? noticiasDefault.facebook.pageUrl,
         pageName: data.facebook?.pageName ?? noticiasDefault.facebook.pageName,
       },
       payDayImage: data.payDayImage
-        ? { id: data.payDayImage.id, src: data.payDayImage.src, alt: data.payDayImage.alt, caption: data.payDayImage.caption }
+        ? {
+            id: data.payDayImage.id,
+            src: `${API_URL}${data.payDayImage.url}`,
+            alt: data.payDayImage.alternativeText ?? '',
+            caption: data.payDayImage.caption ?? '',
+          }
         : noticiasDefault.payDayImage,
     }
 
