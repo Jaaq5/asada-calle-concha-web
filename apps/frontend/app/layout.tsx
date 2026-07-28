@@ -18,13 +18,13 @@ const geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ASADA Calle Concha | Agua 100% Potable",
   description:
-    "Sitio oficial de ASADA Calle Concha. Consulta tu factura, solicita servicios, descarga formularios y mantente informado sobre el servicio de agua potable en nuestra comunidad.",
+    "Sitio web de la ASADA Calle Concha. Consulta tu factura, solicita servicios, descarga formularios y mantente informado sobre el servicio de agua potable.",
   keywords: [
     "ASADA",
     "Calle Concha",
     "agua potable",
     "Costa Rica",
-    "Guanacaste",
+    "Sarchí",
     "servicio público",
     "acueducto",
   ],
@@ -33,8 +33,21 @@ export const metadata: Metadata = {
     title: "ASADA Calle Concha | Agua 100% Potable",
     description:
       "Consulta tu factura, solicita servicios y mantente informado sobre el servicio de agua potable.",
+    url: "https://asadacalleconcha.com",
+    siteName: "ASADA Calle Concha",
+    images: [
+      {
+        url: "/og-image.jpg",
+        alt: "ASADA Calle Concha",
+      },
+    ],
     type: "website",
     locale: "es_CR",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.jpg"],
   },
 
   icons: {
