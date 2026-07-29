@@ -34,7 +34,7 @@ export async function getNoticias(): Promise<NoticiasData> {
           href: n.href,
         })) ?? noticiasDefault.notices,
       gallery:
-        data.gallery
+        (data.Galeria ?? data.gallery)
           ?.map((img: any) => ({
             id: img.id,
             src: `${API_URL}${img.url}`,
@@ -46,12 +46,12 @@ export async function getNoticias(): Promise<NoticiasData> {
         pageUrl: data.facebook?.pageUrl ?? noticiasDefault.facebook.pageUrl,
         pageName: data.facebook?.pageName ?? noticiasDefault.facebook.pageName,
       },
-      payDayImage: data.payDayImage
+      payDayImage: (data.imagenPago ?? data.payDayImage)
         ? {
-            id: data.payDayImage.id,
-            src: `${API_URL}${data.payDayImage.url}`,
-            alt: data.payDayImage.alternativeText ?? '',
-            caption: data.payDayImage.caption ?? '',
+            id: (data.imagenPago ?? data.payDayImage).id,
+            src: `${API_URL}${(data.imagenPago ?? data.payDayImage).url}`,
+            alt: (data.imagenPago ?? data.payDayImage).alternativeText ?? '',
+            caption: (data.imagenPago ?? data.payDayImage).caption ?? '',
           }
         : noticiasDefault.payDayImage,
     }

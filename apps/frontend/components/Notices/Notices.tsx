@@ -17,7 +17,7 @@ interface NoticesProps {
 
 export function Notices({ data, variant = 'full' }: NoticesProps) {
   const displayedNotices = variant === 'home' ? data.notices.slice(0, 3) : data.notices
-  const displayedGallery = variant === 'home' ? data.gallery.slice(0, 4) : data.gallery
+  const displayedGallery = variant === 'home' ? data.gallery.slice(0, 9) : data.gallery
 
   return (
     <section className={styles.section}>

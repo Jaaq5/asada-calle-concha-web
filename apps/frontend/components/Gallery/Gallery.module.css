@@ -104,6 +104,46 @@
   color: var(--asada-text-secondary);
 }
 
+.paginationControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.paginationButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--asada-text-primary);
+  background-color: var(--asada-bg-secondary, rgba(0, 0, 0, 0.05));
+  border: 1px solid var(--asada-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background-color: var(--asada-blue-light);
+  color: #ffffff;
+  border-color: var(--asada-blue-light);
+}
+
+.paginationButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.paginationInfo {
+  font-size: 0.875rem;
+  color: var(--asada-text-secondary);
+  font-weight: 500;
+}
+
 /* ===================== Lightbox ===================== */
 
 .lightbox {

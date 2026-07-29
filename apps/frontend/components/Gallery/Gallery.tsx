@@ -12,11 +12,34 @@ interface GalleryProps {
   totalCount?: number
   single?: boolean
   title?: string
+  pageSize?: number
 }
 
-export function Gallery({ images, showCount = false, totalCount = 0, single = false, title = 'Galería de Imágenes' }: GalleryProps) {
+export function Gallery({
+  images,
+  showCount = false,
+  totalCount = 0,
+  single = false,
+  title = 'Galería de Imágenes',
+  pageSize = 9,
+}: GalleryProps) {
+  const [currentPage, setCurrentPage] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  const isPaginated = !single && images.length > pageSize
+  const totalPages = isPaginated ? Math.ceil(images.length / pageSize) : 1
+  const displayedImages = isPaginated
+    ? images.slice(currentPage * pageSize, (currentPage + 1) * pageSize)
+    : images
+
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => Math.max(0, prev - 1))
+  }
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))
+  }
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index)
@@ -26,11 +49,11 @@ export function Gallery({ images, showCount = false, totalCount = 0, single = fa
   const closeLightbox = () => setLightboxOpen(false)
 
   const prevImage = () => {
-    setLightboxIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+    setLightboxIndex((prev) => (prev === 0 ? displayedImages.length - 1 : prev - 1))
   }
 
   const nextImage = () => {
-    setLightboxIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+    setLightboxIndex((prev) => (prev === displayedImages.length - 1 ? 0 : prev + 1))
   }
 
   return (
@@ -41,7 +64,7 @@ export function Gallery({ images, showCount = false, totalCount = 0, single = fa
           <h3 className={styles.mediaSectionTitle}>{title}</h3>
         </div>
         <div className={styles.galleryGrid} style={single ? { gridTemplateColumns: '1fr' } : undefined}>
-          {images.map((image, index) => (
+          {displayedImages.map((image, index) => (
             <button
               key={image.id}
               className={styles.galleryItem}
@@ -61,7 +84,34 @@ export function Gallery({ images, showCount = false, totalCount = 0, single = fa
             </button>
           ))}
         </div>
-        {showCount && totalCount > 6 && (
+
+        {isPaginated && (
+          <div className={styles.paginationControls}>
+            <button
+              className={styles.paginationButton}
+              onClick={handlePrevPage}
+              disabled={currentPage === 0}
+              aria-label="Página anterior"
+            >
+              <ChevronLeft size={18} />
+              Anterior
+            </button>
+            <span className={styles.paginationInfo}>
+              Página {currentPage + 1} de {totalPages}
+            </span>
+            <button
+              className={styles.paginationButton}
+              onClick={handleNextPage}
+              disabled={currentPage >= totalPages - 1}
+              aria-label="Página siguiente"
+            >
+              Siguiente
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {showCount && totalCount > 0 && (
           <p className={styles.galleryCount}>
             {totalCount} imágenes en total
           </p>
@@ -98,15 +148,15 @@ export function Gallery({ images, showCount = false, totalCount = 0, single = fa
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={images[lightboxIndex].src}
-              alt={images[lightboxIndex].alt}
+              src={displayedImages[lightboxIndex].src}
+              alt={displayedImages[lightboxIndex].alt}
               width={900}
               height={600}
               className={styles.lightboxImage}
               priority
             />
             <p className={styles.lightboxCaption}>
-              {images[lightboxIndex].caption}
+              {displayedImages[lightboxIndex].caption}
             </p>
           </div>
 
@@ -119,7 +169,7 @@ export function Gallery({ images, showCount = false, totalCount = 0, single = fa
           </button>
 
           <div className={styles.lightboxCounter}>
-            {lightboxIndex + 1} / {images.length}
+            {lightboxIndex + 1} / {displayedImages.length}
           </div>
         </div>
       )}

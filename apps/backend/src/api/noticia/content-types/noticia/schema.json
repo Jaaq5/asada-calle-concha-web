@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "gallery": {
+    "Galeria": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
@@ -19,7 +19,7 @@
         "files"
       ]
     },
-    "payDayImage": {
+    "imagenPago": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
