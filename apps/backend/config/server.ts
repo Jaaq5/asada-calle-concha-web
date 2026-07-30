@@ -5,7 +5,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Server =>
   port: env.int('PORT', 1337),
 
   // URL pública de Strapi
-  url: env('PUBLIC_URL', 'https://midominio.com'),
+  url: env('PUBLIC_URL'),
 
   // Confía en los headers enviados por Nginx
   proxy: {

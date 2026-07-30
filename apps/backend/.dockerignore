@@ -1,0 +1,41 @@
+# Dependencias locales
+node_modules
+npm-debug.log
+.yarn
+.pnpm-store
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*
+
+# Desarrollo
+.vscode
+.idea
+
+# Tests
+coverage
+*.test.*
+*.spec.*
+
+# Logs
+logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Strapi generado
+.tmp
+.cache
+build
+dist
