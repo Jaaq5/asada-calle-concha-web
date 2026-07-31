@@ -185,6 +185,28 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+.lightboxZoom {
+  position: absolute;
+  top: 1rem;
+  right: 4.25rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.lightboxZoom:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .lightboxNav {
   position: absolute;
   top: 50%;
@@ -232,6 +254,11 @@
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.lightboxImage.zoomed {
+  transform: scale(1.5);
 }
 
 .lightboxCaption {

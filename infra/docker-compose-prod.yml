@@ -16,9 +16,11 @@ services:
     #env_file:
     #- .env
 
-    #environment:
-    #NODE_ENV: production
-    #API_URL: http://strapi:1337
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      API_URL: ${API_URL}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET}
 
     expose:
       - "3000"
@@ -52,8 +54,9 @@ services:
       - .env.production
 
     environment:
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV}
       API_URL: ${API_URL}
+      PUBLIC_URL: ${PUBLIC_URL}
 
     expose:
       - "1337"
@@ -61,6 +64,9 @@ services:
     depends_on:
       strapiDB:
         condition: service_healthy
+
+    volumes:
+      - strapi-uploads:/opt/app/public/uploads
 
     networks:
       - app-network
@@ -166,6 +172,7 @@ services:
 
 volumes:
   strapi-data-prod:
+  strapi-uploads:
 
 ################################
 # NETWORK

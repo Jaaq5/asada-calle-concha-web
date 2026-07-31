@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { X, ChevronLeft, ChevronRight, Images } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Images, ZoomIn, ZoomOut } from 'lucide-react'
 import styles from './Gallery.module.css'
 import { GalleryImage } from '@/types/noticias'
 
@@ -26,6 +26,7 @@ export function Gallery({
   const [currentPage, setCurrentPage] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [isZoomed, setIsZoomed] = useState(false)
 
   const isPaginated = !single && images.length > pageSize
   const totalPages = isPaginated ? Math.ceil(images.length / pageSize) : 1
@@ -44,16 +45,27 @@ export function Gallery({
   const openLightbox = (index: number) => {
     setLightboxIndex(index)
     setLightboxOpen(true)
+    setIsZoomed(false)
   }
 
-  const closeLightbox = () => setLightboxOpen(false)
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+    setIsZoomed(false)
+  }
 
   const prevImage = () => {
     setLightboxIndex((prev) => (prev === 0 ? displayedImages.length - 1 : prev - 1))
+    setIsZoomed(false)
   }
 
   const nextImage = () => {
     setLightboxIndex((prev) => (prev === displayedImages.length - 1 ? 0 : prev + 1))
+    setIsZoomed(false)
+  }
+
+  const toggleZoom = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setIsZoomed((prev) => !prev)
   }
 
   return (
@@ -128,6 +140,14 @@ export function Gallery({
           aria-label="Visor de imágenes"
         >
           <button
+            className={styles.lightboxZoom}
+            onClick={toggleZoom}
+            aria-label={isZoomed ? 'Alejar imagen' : 'Acercar imagen'}
+          >
+            {isZoomed ? <ZoomOut size={24} /> : <ZoomIn size={24} />}
+          </button>
+
+          <button
             className={styles.lightboxClose}
             onClick={closeLightbox}
             aria-label="Cerrar visor"
@@ -152,7 +172,7 @@ export function Gallery({
               alt={displayedImages[lightboxIndex].alt}
               width={900}
               height={600}
-              className={styles.lightboxImage}
+              className={`${styles.lightboxImage} ${isZoomed ? styles.zoomed : ''}`}
               priority
             />
             <p className={styles.lightboxCaption}>

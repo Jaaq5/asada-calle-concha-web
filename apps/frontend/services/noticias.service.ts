@@ -4,6 +4,7 @@ import { noticiasDefault } from '@/config/noticias'
 export async function getNoticias(): Promise<NoticiasData> {
   try {
     const API_URL = process.env.API_URL || 'http://localhost:1337'
+    const PUBLIC_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337'
 
     const res = await fetch(`${API_URL}/api/noticia?populate=*`, {
       next: {
@@ -37,7 +38,7 @@ export async function getNoticias(): Promise<NoticiasData> {
         (data.Galeria ?? data.gallery)
           ?.map((img: any) => ({
             id: img.id,
-            src: `${API_URL}${img.url}`,
+            src: `${PUBLIC_URL}${img.url}`,
             alt: img.alternativeText ?? '',
             caption: img.caption ?? '',
           }))
@@ -49,7 +50,7 @@ export async function getNoticias(): Promise<NoticiasData> {
       payDayImage: (data.imagenPago ?? data.payDayImage)
         ? {
             id: (data.imagenPago ?? data.payDayImage).id,
-            src: `${API_URL}${(data.imagenPago ?? data.payDayImage).url}`,
+            src: `${PUBLIC_URL}${(data.imagenPago ?? data.payDayImage).url}`,
             alt: (data.imagenPago ?? data.payDayImage).alternativeText ?? '',
             caption: (data.imagenPago ?? data.payDayImage).caption ?? '',
           }
